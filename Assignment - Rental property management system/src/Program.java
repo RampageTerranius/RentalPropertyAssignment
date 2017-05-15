@@ -2,10 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Program {
-	ArrayList<HomeOwner> owners;
-	ArrayList<Tenant> tenants;
-	ArrayList<Property> properties;
-	Scanner sc;
+	private ArrayList<HomeOwner> owners;
+	private ArrayList<Tenant> tenants;
+	private ArrayList<Property> properties;
+	private Scanner sc;
+	
+	//constants for use with file saving/loading
+	private final String personFileName = "person.txt";
+	private final String propertyFileName = "property.txt";
 	
 	public Program() {
 		owners = new ArrayList<HomeOwner>();
@@ -102,6 +106,13 @@ public class Program {
 	}
 
 	public void saveData() {
+		System.out.println("Saving data...");		
+		
+		IOConversion conv = new IOConversion();		
+		if(conv.saveAllData(personFileName, propertyFileName, owners, tenants, properties))
+			System.out.println("data saved");
+		else
+			System.out.println("Save failed...");		
 	}
 	
 	public void loadData() {
