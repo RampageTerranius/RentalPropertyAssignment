@@ -33,7 +33,7 @@ public class TownHouse extends Property {
 	public String convertToString() {
 		String result = "";
 		
-		result += baseConvertToString() + ",";
+		result += "2," + baseConvertToString() + ",";
 		result += getAttachedHouses();
 		
 		return result;		

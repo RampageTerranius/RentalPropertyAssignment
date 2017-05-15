@@ -24,6 +24,15 @@ public class DetatchedHouse extends Property {
 		landArea = pLandArea;
 	}
 	
+	public String convertToString() {
+		String result = "";
+		
+		result += "4," + baseConvertToString() + ",";
+		result += getLandArea();
+		
+		return result;		
+	}
+	
 	//toString override
 	@Override
 	public String toString() {

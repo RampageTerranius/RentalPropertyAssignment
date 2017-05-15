@@ -29,7 +29,7 @@ public class Apartment extends Property {
 	public String convertToString() {
 		String result = "";
 		
-		result += baseConvertToString() + ",";
+		result += "1," + baseConvertToString() + ",";
 		result += getFloorNumber();
 		
 		return result;

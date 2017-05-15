@@ -47,6 +47,20 @@ public class HomeOwner extends Person {
 		return properties.get(index);
 	}
 	
+	private String getPropertyIds() {
+		String result = "";
+		if (properties.size() > 0)
+		{
+			for (Property property : properties)
+				result += property.getIdNumber() + "-";
+			
+			//remove the last - symbol
+			result = result.substring(0, result.length() - 1);
+		}	
+			
+		return result;
+	}
+	
 	public int getTotalOwnedProperties() {
 		return properties.size();
 	}
@@ -64,6 +78,15 @@ public class HomeOwner extends Person {
 			}		
 		
 		return "None";
+	}
+	
+	public String convertToString() {
+		String result = "";
+		
+		result += "2," + baseConvertToString() + ",";
+		result += getPropertyIds();
+		
+		return result;
 	}
 	
 	//toString override

@@ -72,7 +72,7 @@ public class Tenant extends Person{
 	public String convertToString() {
 		String result = "";
 		
-		result += baseConvertToString() + ",";
+		result += "1," + baseConvertToString() + ",";
 		result += getDateLeased() + ",";
 		result += getLengthOfContract() + ",";
 		result += getProperty().getIdNumber();

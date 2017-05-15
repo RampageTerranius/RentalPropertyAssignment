@@ -12,6 +12,13 @@ public class Studio extends Property {
 		super(pIdNumber, pAddress, pCostPerWeek, pGarageType, pDescription);
 	}
 	
+	public String convertToString() {
+		String result = "";
+		
+		result += "3," + baseConvertToString() + ",";
+		return result;		
+	}
+	
 	//toString override
 	@Override
 	public String toString() {
