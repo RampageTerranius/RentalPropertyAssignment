@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Program {
 	private ArrayList<HomeOwner> owners;
@@ -64,7 +65,12 @@ public class Program {
 				break;
 				
 			case "show":
-				showData();
+				showData(false);
+				break;
+				
+			case "credits":
+				System.out.println("Created by tyler brown");
+				System.out.println("created for tafe java assignment 2017");
 				break;
 				
 			default:
@@ -77,23 +83,36 @@ public class Program {
 	}
 	
 	//prints all the data in each array using toString method
-	public void showData() {
+	public void showData(boolean showDeleteId) {
+		int i = 0;
 		if (owners.size() > 0)
-			for (HomeOwner homeOwner : owners) 
-				System.out.println(homeOwner.toString());			
-		else
+			for (HomeOwner homeOwner : owners) {
+				if (showDeleteId)
+					System.out.println(i);
+				System.out.println(homeOwner.toString());
+				i++;
+			}							
+		else if (!showDeleteId)
 			System.out.println("No home owners loaded...");
 		
-		if (tenants.size() > 0)
-			for (Tenant tenant : tenants) 
-				System.out.println(tenant.toString());			
-		else
+		if (tenants.size() > 0) 
+			for (Tenant tenant : tenants) {
+				if (showDeleteId)
+					System.out.println(i);
+				System.out.println(tenant.toString());
+				i++;
+			}	
+		else if (!showDeleteId)
 			System.out.println("No tenants loaded...");
 		
-		if (properties.size() > 0)
-			for (Property property : properties) 
-				System.out.println(property.toString());			
-		else
+		if (properties.size() > 0) 
+			for (Property property : properties) {
+				if (showDeleteId)
+					System.out.println(i);
+				System.out.println(property.toString());	
+				i++;
+			}	
+		else if (!showDeleteId)
 			System.out.println("No properties loaded...");
 	}
 	
@@ -107,6 +126,17 @@ public class Program {
 			System.out.println("Please enter your command");
 			
 			switch(sc.nextLine().toLowerCase()) {
+			
+			case "test":
+				tenants.add(new Tenant());
+				tenants.add(new Tenant());
+				owners.add(new HomeOwner());
+				owners.add(new HomeOwner());
+				properties.add(new Apartment());
+				properties.add(new TownHouse());
+				properties.add(new Studio());
+				properties.add(new DetatchedHouse());
+				break;
 			
 			case "create tenant":
 				tenants.add(new Tenant());
@@ -172,6 +202,90 @@ public class Program {
 	}
 	
 	public void deleteData() {
+		boolean loop = true;
+		
+		if (owners.size() + tenants.size() + properties.size() == 0) {
+			System.out.println("\n--Data Delete--");
+			System.out.println("no data to delete! returning to last menu");
+			return;
+		}
+			
+		
+		System.out.println("\n--Data Delete--");
+		System.out.println("type help for command list");
+		
+		while (loop) {			
+			System.out.println("Please enter your command");
+			String string = sc.nextLine().toLowerCase();
+			switch(string.split(" ")[0]) {
+			
+			case "delete":		
+				if (string.split(" ").length > 1) {
+					try {
+						int num = Integer.parseInt(string.split(" ")[1]);
+						int totalSize = (owners.size() + tenants.size() + properties.size());
+						if (num >= 0 && num < totalSize) {
+							
+							if (num >= (owners.size() + tenants.size())) {
+								if (properties.size() > 0) {
+									System.out.println(num);
+									num -= owners.size();
+									num -= tenants.size();
+									System.out.println(num);
+									properties.remove(num);
+									System.out.println("property deleted");
+								}
+								
+							} else if (num >= owners.size()) {
+								if (tenants.size() > 0) {
+									System.out.println(num);
+									num -= owners.size();
+									System.out.println(num);
+									tenants.remove(num);
+									System.out.println("tenant deleted");
+								}								
+							} else if (owners.size() > 0) {
+								System.out.println(num);
+								owners.remove(num);
+								System.out.println("owner deleted");
+							}
+								
+						}
+						else
+							System.out.println("invalid index");
+					}
+					catch (NumberFormatException e) {
+						System.out.println("unknown command");
+						System.out.println("type help for command list");
+					}
+				}
+				else
+				{
+					System.out.println("unknown command");
+					System.out.println("type help for command list");
+				}									
+				break;
+					
+			case "show":
+				showData(true);
+				break;
+			
+			case "help":
+				System.out.println("show - shows the list of all data with an accompanying id");
+				System.out.println("delete <#> - removes the data with the given id");
+				System.out.println("exit - returns to the previous menu");
+			
+			case "back":
+			case "exit":
+				loop = false;
+				break;
+				
+			default:
+				System.out.println("unknown command");
+				System.out.println("type help for command list");
+				break;
+			}				
+		}
 	}
 
 	public void saveData() {
@@ -179,7 +293,7 @@ public class Program {
 		
 		IOConversion conv = new IOConversion();		
 		if(conv.saveAllData(personFileName, propertyFileName, owners, tenants, properties))
-			System.out.println("data saved");
+			System.out.println("Data saved");
 		else
 			System.out.println("Save failed...");		
 	}
@@ -204,6 +318,7 @@ public class Program {
 				System.out.println("delete - opens the menu to delete data");
 				System.out.println("save - saves the current changes to file");
 				System.out.println("load - reloads the original file discarding changes");
+				System.out.println("credits - shows the credits");
 				System.out.println("exit - exits program");
 				break;
 		}		
