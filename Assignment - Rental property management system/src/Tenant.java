@@ -1,39 +1,44 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tenant extends Person{
-	private Date dateLeased;
+	private long dateLeased;
 	private int lengthOfContract;
 	private Property property;
 	
 	//defaulted data constructor
 	public Tenant() {
-		super(-1, "None", "None", new Date(), 'U');
-		setDateLeased(new Date(0));
+		super(-1, "None", "None", new Date().getTime(), 'U');
+		setDateLeased(new Date().getTime());
 		setLengthOfContract(0);		
 		property = null;
 	}
 	
 	//default constructor 
-	public Tenant(int pIdNumber, String pFirstName, String pLastName, Date pDOB, char pGender) {
+	public Tenant(int pIdNumber, String pFirstName, String pLastName, long pDOB, char pGender) {
 		super(pIdNumber, pFirstName, pLastName, pDOB, pGender);
-		setDateLeased(new Date(0));
+		setDateLeased(new Date().getTime());
 		setLengthOfContract(0);		
 		property = null;
 	}
 	
 	//secondary constructor for setting extra values
-	public Tenant(int pIdNumber, String pFirstName, String pLastName, Date pDOB, char pGender, Date pDateLeased, int pLengthOfContract, Property pProperty) {
+	public Tenant(int pIdNumber, String pFirstName, String pLastName, long pDOB, char pGender, long pDateLeased, int pLengthOfContract, Property pProperty) {
 		super(pIdNumber, pFirstName, pLastName, pDOB, pGender);
 		setDateLeased(pDateLeased);
 		setLengthOfContract(pLengthOfContract);
 		setProperty(pProperty);
 	}
 
-	public Date getDateLeased() {
+	public long getDateLeased() {
 		return dateLeased;
 	}
+	
+	public String printDateLeased() {
+		return new Date(dateLeased).toString();
+	}
 
-	public void setDateLeased(Date pDateLeased) {
+	public void setDateLeased(long pDateLeased) {
 		dateLeased = pDateLeased;
 	}
 
@@ -91,7 +96,8 @@ public class Tenant extends Person{
 		
 		if (getProperty() != null)
 			lAddress = getProperty().getAddress();
+		Date date = new Date();
 		
-		return "Tenant ID: " + getIdNumber() + "\n FirstName: " + getFirstName() + "\n LastName: " + getLastName() + "\n DOB: " + getDOB() + "\n Gender: " + getGender() +  "\n Property: " + lAddress + "\n DateLeased: " + getDateLeased().toString() + "\n LengthOfContract: " + getLengthOfContract() + "\n";
+		return "Tenant ID: " + getIdNumber() + "\n FirstName: " + getFirstName() + "\n LastName: " + getLastName() + "\n DOB: " + printDOB() + "\n Gender: " + getGender() +  "\n Property: " + lAddress + "\n DateLeased: " + printDateLeased() + "\n LengthOfContract: " + getLengthOfContract() + "\n";
 	}
 }

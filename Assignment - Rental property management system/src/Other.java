@@ -1,4 +1,4 @@
-
+/*
 public class Other<t> extends Property{
 	private t extraData;
 	
@@ -43,3 +43,4 @@ public class Other<t> extends Property{
 		return super.toString() + "\n ExtraData: " + getExtraData() + "\n";
 	}
 }
+*/

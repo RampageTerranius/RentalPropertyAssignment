@@ -34,7 +34,7 @@ public class IO {
 		}
 		
 		catch (FileNotFoundException e) {
-			System.out.println("File Not Found " + e.getMessage());
+			System.out.println("File Not Found");
 		}
 		
 		return null;

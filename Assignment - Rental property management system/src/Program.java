@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Program {
 	private ArrayList<HomeOwner> owners;
@@ -21,7 +20,11 @@ public class Program {
 	
 	//primary program loop handler
 	public void runProgram() {
-		showMessage("welcome message");		
+		showMessage("welcome message");
+		
+		//auto loading file
+		IOConversion ioc = new IOConversion();		
+		ioc.loadAllData(personFileName, propertyFileName, owners, tenants, properties);
 		
 		boolean running = true;
 		
@@ -168,10 +171,10 @@ public class Program {
 				System.out.println("new detatchedhouse created, modify it in the modify menu");
 				break;
 				
-			case "create other":
+			/*case "create other":
 				properties.add(new Other());
 				System.out.println("new other created, modify it in the modify menu");
-				break;
+				break;*/
 			
 			
 			case "exit":
@@ -199,6 +202,27 @@ public class Program {
 	}
 	
 	public void modifyData() {
+		boolean loop = true;
+		
+		System.out.println("\n--Data Modify--");
+		System.out.println("type help for command list");
+		
+		while (loop) {
+			System.out.println("Please enter your command");
+			String string = sc.nextLine().toLowerCase();
+			switch(string.split(" ")[0]) {
+			
+			case "back":
+			case "exit":
+				loop = false;
+				break;
+				
+			default:
+				System.out.println("unknown command");
+				System.out.println("type help for command list");
+				break;			
+			}
+		}				
 	}
 	
 	public void deleteData() {
@@ -299,6 +323,9 @@ public class Program {
 	}
 	
 	public void loadData() {
+		IOConversion ioc = new IOConversion();
+		if (ioc.loadAllData(personFileName, propertyFileName, owners, tenants, properties))					
+			System.out.println("Data loaded");
 	}
 	
 	public void showMessage(String messageName) {

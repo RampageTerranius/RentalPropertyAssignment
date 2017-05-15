@@ -4,7 +4,7 @@ abstract public class Person {
 	private int idNumber;
 	private String firstName;
 	private String lastName;
-	private Date DOB;
+	private long DOB;
 	private char gender;
 	
 	//defaulted data constructor
@@ -12,12 +12,12 @@ abstract public class Person {
 		setIdNumber(-1);
 		setFirstName("John");
 		setLastName("Doe");
-		setDOB(new Date());
+		setDOB(new Date().getTime());
 		setGender('m');
 	}
 	
 	//specified data constructor
-	public Person(int pIdNumber, String pFirstName, String pLastName, Date pDOB, char pGender) {
+	public Person(int pIdNumber, String pFirstName, String pLastName, long pDOB, char pGender) {
 		setIdNumber(pIdNumber);
 		setFirstName(pFirstName);
 		setLastName(pLastName);
@@ -49,11 +49,15 @@ abstract public class Person {
 		lastName = pLastName;
 	}
 	
-	public Date getDOB() {
+	public long getDOB() {
 		return DOB;
 	}
 	
-	public void setDOB(Date pDOB) {
+	public String printDOB() {
+		return new Date(DOB).toString();
+	}
+	
+	public void setDOB(long pDOB) {
 		DOB = pDOB;
 	}
 	

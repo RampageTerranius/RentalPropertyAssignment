@@ -6,18 +6,18 @@ public class HomeOwner extends Person {
 	
 	//defaulted data constructor
 	public HomeOwner() {
-		super(-1, "None", "None", new Date(), 'U');		
+		super(-1, "None", "None", new Date().getTime(), 'U');		
 		properties = new ArrayList<Property>();
 	}
 	
 	//default constructor
-	public HomeOwner(int pIdNumber, String pFirstName, String pLastName, Date pDOB, char pGender) {
+	public HomeOwner(int pIdNumber, String pFirstName, String pLastName, long pDOB, char pGender) {
 		super(pIdNumber, pFirstName, pLastName, pDOB, pGender);		
 		properties = new ArrayList<Property>();
 	}
 	
 	//extra constructor enabling addition of property
-	public HomeOwner(int pIdNumber, String pFirstName, String pLastName, Date pDOB, char pGender, Property property) {
+	public HomeOwner(int pIdNumber, String pFirstName, String pLastName, long pDOB, char pGender, Property property) {
 		super(pIdNumber, pFirstName, pLastName, pDOB, pGender);
 		properties = new ArrayList<Property>();
 		addProperty(property);
@@ -95,6 +95,6 @@ public class HomeOwner extends Person {
 	//toString override
 	@Override
 	public String toString() {
-		return "Home Owner ID: " + getIdNumber() + "\n FirstName: " + getFirstName() + "\n LastName: " + getLastName() + "\n DOB: " + getDOB() + "\n Gender: " + getGender() + "\n Properties: " + returnPropertyAddresses() + "\n";
+		return "Home Owner ID: " + getIdNumber() + "\n FirstName: " + getFirstName() + "\n LastName: " + getLastName() + "\n DOB: " + printDOB() + "\n Gender: " + getGender() + "\n Properties: " + returnPropertyAddresses() + "\n";
 	}	
 }
