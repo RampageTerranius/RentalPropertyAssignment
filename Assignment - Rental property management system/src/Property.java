@@ -179,6 +179,25 @@ abstract public class Property {
 			//remove the last - symbol added
 			result = result.substring(0, result.length() - 1);
 		}
+		else
+			result = "-1";
+		
+		return result;
+	}
+	
+	private String tenantIdsToString() {
+		String result = "";
+		
+		if (tenants.size() > 0)		
+		{
+			for (Tenant tenant : tenants)
+				result += tenant.getIdNumber() + "-";
+			
+			//remove the last - symbol added
+			result = result.substring(0, result.length() - 1);
+		}
+		else
+			result = "-1";
 		
 		return result;
 	}
@@ -190,7 +209,7 @@ abstract public class Property {
 		result += getIdNumber() + ",";
 		result += getAddress() + ",";
 		result += ownerIdsToString() + ",";//TODO: get owners and get tenants somehow
-		result += "tenants here" + ",";
+		result += tenantIdsToString() + ",";
 		result += getCostPerWeek() + ",";
 		result += getGarageType() + ",";
 		result += getDescription() + ",";

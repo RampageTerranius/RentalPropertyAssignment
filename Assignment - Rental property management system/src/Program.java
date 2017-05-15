@@ -31,9 +31,10 @@ public class Program {
 	}
 	
 	public boolean getInput() {
-		System.out.println("\nPlease enter your command");
+		System.out.println("\n--Main Menu--");
+		System.out.println("Please enter your command");
 		
-		switch(sc.next()) {
+		switch(sc.nextLine().toLowerCase()) {
 			case "exit":
 				System.out.println("Exiting program...");
 				return false;	
@@ -68,7 +69,7 @@ public class Program {
 				
 			default:
 				System.out.println("unknown command");
-				System.out.println("use help if you need to know the command list");
+				System.out.println("type help for command list");
 				break;
 		}
 		
@@ -96,7 +97,75 @@ public class Program {
 			System.out.println("No properties loaded...");
 	}
 	
+	//loop for adding data
 	public void addData() {
+		boolean loop = true;
+		System.out.println("\n--Data Add--");
+		System.out.println("type help for command list");
+		
+		while (loop) {			
+			System.out.println("Please enter your command");
+			
+			switch(sc.nextLine().toLowerCase()) {
+			
+			case "create tenant":
+				tenants.add(new Tenant());
+				System.out.println("new tenant created, modify it in the modify menu");
+				break;
+				
+			case "create homeowner":
+				owners.add(new HomeOwner());
+				System.out.println("new home owner created, modify it in the modify menu");
+				break;
+				
+			case "create apartment":
+				properties.add(new Apartment());
+				System.out.println("new apartment created, modify it in the modify menu");
+				break;
+				
+			case "create townhouse":
+				properties.add(new TownHouse());
+				System.out.println("new townhouse created, modify it in the modify menu");
+				break;
+				
+			case "create studio":
+				properties.add(new Studio());
+				System.out.println("new studio created, modify it in the modify menu");
+				break;
+				
+			case "create detatchedhouse":
+				properties.add(new DetatchedHouse());
+				System.out.println("new detatchedhouse created, modify it in the modify menu");
+				break;
+				
+			case "create other":
+				properties.add(new Other());
+				System.out.println("new other created, modify it in the modify menu");
+				break;
+			
+			
+			case "exit":
+			case "back":
+				loop = false;
+				break;
+				
+			case "help":
+				System.out.println("create tenant - create a blank tenant");
+				System.out.println("create homeowner - create a blank home owner");
+				System.out.println("create apartment - create a blank apartment");
+				System.out.println("create townhouse - create a blank townhouse");
+				System.out.println("create studio - create a blank studio");
+				System.out.println("create detatchedhouse - create a blank detatchedhouse");
+				System.out.println("create other  - create a blank home using custom data");
+				System.out.println("exit - returns to the previous menu");
+				break;
+			
+			default:
+				System.out.println("unknown command");
+				System.out.println("type help for command list");
+				break;
+			}
+		}
 	}
 	
 	public void modifyData() {
@@ -134,7 +203,7 @@ public class Program {
 				System.out.println("modify - opens the menu to modify data");
 				System.out.println("delete - opens the menu to delete data");
 				System.out.println("save - saves the current changes to file");
-				System.out.println("load - relaods the original file discarding changes");
+				System.out.println("load - reloads the original file discarding changes");
 				System.out.println("exit - exits program");
 				break;
 		}		

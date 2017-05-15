@@ -84,7 +84,10 @@ public class HomeOwner extends Person {
 		String result = "";
 		
 		result += "2," + baseConvertToString() + ",";
-		result += getPropertyIds();
+		if (getPropertyIds() != "")
+			result += getPropertyIds();
+		else
+			result += "-1";
 		
 		return result;
 	}

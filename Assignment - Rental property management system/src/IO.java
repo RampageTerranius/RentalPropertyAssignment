@@ -62,11 +62,11 @@ public class IO {
 			
 			finally {
 				try {
-					if (fw != null)
-						fw.close();
-					
 					if (bw != null)
 						bw.close();
+					
+					if (fw != null)
+						fw.close();
 				} 
 				catch (IOException e) {
 					e.printStackTrace();

@@ -75,7 +75,10 @@ public class Tenant extends Person{
 		result += "1," + baseConvertToString() + ",";
 		result += getDateLeased() + ",";
 		result += getLengthOfContract() + ",";
-		result += getProperty().getIdNumber();
+		if (getProperty() != null)
+			result += getProperty().getIdNumber();
+		else
+			result += "-1";
 		
 		return result;
 	}
