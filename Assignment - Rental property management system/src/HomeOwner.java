@@ -6,7 +6,7 @@ public class HomeOwner extends Person {
 	
 	//defaulted data constructor
 	public HomeOwner() {
-		super(-1, "None", "None", new Date().getTime(), 'U');		
+		super();		
 		properties = new ArrayList<Property>();
 	}
 	
@@ -52,7 +52,7 @@ public class HomeOwner extends Person {
 		if (properties.size() > 0)
 		{
 			for (Property property : properties)
-				result += property.getIdNumber() + "-";
+				result += property.getIdNumber() + "=";
 			
 			//remove the last - symbol
 			result = result.substring(0, result.length() - 1);

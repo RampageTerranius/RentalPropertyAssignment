@@ -1,4 +1,3 @@
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tenant extends Person{
@@ -8,7 +7,7 @@ public class Tenant extends Person{
 	
 	//defaulted data constructor
 	public Tenant() {
-		super(-1, "None", "None", new Date().getTime(), 'U');
+		super();
 		setDateLeased(new Date().getTime());
 		setLengthOfContract(0);		
 		property = null;

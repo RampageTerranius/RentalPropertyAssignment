@@ -326,6 +326,8 @@ public class Program {
 		IOConversion ioc = new IOConversion();
 		if (ioc.loadAllData(personFileName, propertyFileName, owners, tenants, properties))					
 			System.out.println("Data loaded");
+		else
+			System.out.println("Data failed to load");
 	}
 	
 	public void showMessage(String messageName) {

@@ -11,8 +11,8 @@ public class TownHouse extends Property {
 		setAttachedHouses(pAttachedHouses);
 	}
 	
-	public TownHouse(int pIdNumber, String pAddress, double pCostPerWeek, GarageType pGarageType, String pDescription, int pAttachedHouses) {
-		super(pIdNumber, pAddress, pCostPerWeek, pGarageType, pDescription);
+	public TownHouse(int pIdNumber, String pAddress, double pCostPerWeek, GarageType pGarageType, String pDescription, double pPropertyArea, int pAttachedHouses) {
+		super(pIdNumber, pAddress, pCostPerWeek, pGarageType, pDescription, pPropertyArea);
 		setAttachedHouses(pAttachedHouses);
 	}
 
@@ -20,8 +20,8 @@ public class TownHouse extends Property {
 		return attachedHouses;
 	}
 
-	public void setAttachedHouses(int attachedHouses) {
-		this.attachedHouses = attachedHouses;
+	public void setAttachedHouses(int pAttachedHouses) {
+		attachedHouses = pAttachedHouses;
 	}
 	
 	//toString override

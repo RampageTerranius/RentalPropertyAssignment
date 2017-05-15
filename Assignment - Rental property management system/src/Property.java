@@ -15,7 +15,7 @@ abstract public class Property {
 	//defaulted data constructor
 	public Property() {
 		setIdNumber(-1);
-		setAddress("None");
+		setAddress("No Name");
 		setCostPerWeek(0);
 		owners = null;
 		tenants = null;
@@ -43,7 +43,7 @@ abstract public class Property {
 	}
 	
 	//extra data constructor
-	public Property(int pIdNumber, String pAddress, double pCostPerWeek, GarageType pGarageType, String pDescription) {
+	public Property(int pIdNumber, String pAddress, double pCostPerWeek, GarageType pGarageType, String pDescription, double pPropertyArea) {
 		setIdNumber(pIdNumber);
 		setAddress(pAddress);
 		setCostPerWeek(pCostPerWeek);
@@ -205,7 +205,7 @@ abstract public class Property {
 	//used for automatically returning the base property values as a string
 	protected String baseConvertToString() {
 		String result = "";		
-		
+		//type id
 		result += getIdNumber() + ",";
 		result += getAddress() + ",";
 		result += ownerIdsToString() + ",";//TODO: get owners and get tenants somehow
@@ -215,7 +215,7 @@ abstract public class Property {
 		result += getDescription() + ",";
 		result += getRating() + ",";
 		result += getPropertyArea();
-		
+		//extra data after this
 		return result;
 	}
 	

@@ -11,8 +11,8 @@ public class DetatchedHouse extends Property {
 		setLandArea(pLandArea);
 	}
 	
-	public DetatchedHouse(int pIdNumber, String pAddress, GarageType pGarageType, String pDescription, double pCostPerWeek, double pLandArea) {
-		super(pIdNumber, pAddress, pCostPerWeek, pGarageType, pDescription);
+	public DetatchedHouse(int pIdNumber, String pAddress, double pCostPerWeek, GarageType pGarageType, String pDescription, double pPropertyArea, double pLandArea) {
+		super(pIdNumber, pAddress, pCostPerWeek, pGarageType, pDescription, pPropertyArea);
 		setLandArea(pLandArea);
 	}
 

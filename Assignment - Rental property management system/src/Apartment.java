@@ -13,8 +13,8 @@ public class Apartment extends Property {
 		setFloorNumber(pFloorNumber);
 	}
 	
-	public Apartment(int pIdNumber, String pAddress, double pCostPerWeek, GarageType pGarageType, String pDescription, String pFloorNumber) {
-		super(pIdNumber, pAddress, pCostPerWeek, pGarageType, pDescription);
+	public Apartment(int pIdNumber, String pAddress, double pCostPerWeek, GarageType pGarageType, String pDescription, double pPropertyArea, String pFloorNumber) {
+		super(pIdNumber, pAddress, pCostPerWeek, pGarageType, pDescription, pPropertyArea);
 		setFloorNumber(pFloorNumber);
 	}
 
