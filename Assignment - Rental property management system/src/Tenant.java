@@ -63,10 +63,10 @@ public class Tenant extends Person{
 		pProperty.addTenant(this, false);
 	}
 	
-	public void rateProperty(int rating) {
-		if (rating >= 0)
-			if (rating <= 10)
-				property.addRating(rating);
+	public void rateProperty(double rating) {
+		if (rating >= 0.0)
+			if (rating <= 10.0)
+				property.setRating(rating);
 			else
 				System.out.println("rating must be 10 or lower");
 		else
@@ -95,7 +95,6 @@ public class Tenant extends Person{
 		
 		if (getProperty() != null)
 			lAddress = getProperty().getAddress();
-		Date date = new Date();
 		
 		return "Tenant ID: " + getIdNumber() + "\n FirstName: " + getFirstName() + "\n LastName: " + getLastName() + "\n DOB: " + printDOB() + "\n Gender: " + getGender() +  "\n Property: " + lAddress + "\n DateLeased: " + printDateLeased() + "\n LengthOfContract: " + getLengthOfContract() + "\n";
 	}

@@ -9,7 +9,7 @@ abstract public class Property {
 	private double costPerWeek;
 	private GarageType garageType;
 	private String description;
-	private ArrayList<Integer> rating;
+	private double rating;
 	private double propertyArea;
 	
 	//defaulted data constructor
@@ -20,9 +20,8 @@ abstract public class Property {
 		owners = null;
 		tenants = null;
 		setGarageType(GarageType.none);
-		setDescription("No Description");
-		
-		clearRating();		
+		setDescription("No Description");		
+		setRating(0);
 		owners = new ArrayList<HomeOwner>();
 		tenants = new ArrayList<Tenant>();		
 	}
@@ -36,8 +35,7 @@ abstract public class Property {
 		tenants = null;
 		setGarageType(GarageType.none);
 		setDescription("No Description");		
-
-		clearRating();
+		setRating(0);
 		owners = new ArrayList<HomeOwner>();
 		tenants = new ArrayList<Tenant>();
 	}
@@ -52,7 +50,7 @@ abstract public class Property {
 		setGarageType(pGarageType);
 		setDescription(pDescription);	
 		
-		clearRating();
+		setRating(0);
 		owners = new ArrayList<HomeOwner>();
 		tenants = new ArrayList<Tenant>();
 	}
@@ -143,29 +141,20 @@ abstract public class Property {
 		description = pDescription;
 	}
 	
-	public double getRating() {
-		double lRating = 0;
-		if (rating.size() > 0)
-		{		
-			for (int i = 0; i < rating.size(); i++)
-				lRating += rating.get(i);
-			
-			lRating /= rating.size();
-		}
-		
-		return lRating;
+	public double getRating() {		
+		return rating;
 	}
 	
-	public void clearRating() {
-		rating = new ArrayList<Integer>();
-	}
-	
-	public void addRating(int pRating) {
-		rating.add(pRating);
+	public void setRating(double pRating) {
+		rating = pRating;
 	}
 	
 	public double getPropertyArea() {
 		return propertyArea;
+	}
+	
+	public void setPropertyArea(double pPropertyArea) {
+		propertyArea = pPropertyArea;
 	}
 	
 	private String ownerIdsToString() {

@@ -1,4 +1,3 @@
-import java.security.acl.Owner;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +55,7 @@ public class IOConversion {
 					}
 					catch (Exception e) {
 						System.out.println("Failed to load person file at line: " + line);
-					}					
+					}
 					break;
 					
 				//homeowner
@@ -67,7 +66,7 @@ public class IOConversion {
 					}
 					catch (Exception e) {
 						System.out.println("Failed to load person file at line: " + line);
-					}		
+					}
 					break;
 			}
 			line++;
