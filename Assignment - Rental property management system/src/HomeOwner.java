@@ -16,10 +16,10 @@ public class HomeOwner extends Person {
 	}
 	
 	//extra constructor enabling addition of property
-	public HomeOwner(int pIdNumber, String pFirstName, String pLastName, long pDOB, char pGender, Property property) {
+	public HomeOwner(int pIdNumber, String pFirstName, String pLastName, long pDOB, char pGender, Property pProperty) {
 		super(pIdNumber, pFirstName, pLastName, pDOB, pGender);
 		properties = new ArrayList<Property>();
-		addProperty(property);
+		addProperty(pProperty);
 	}
 	
 	public void addProperty(Property pProperty, boolean affectsOwner) {
