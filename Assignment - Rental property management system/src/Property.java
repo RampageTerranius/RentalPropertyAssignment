@@ -174,6 +174,23 @@ abstract public class Property {
 		return result;
 	}
 	
+	public String ownerNamesToString() {
+		String result = "";
+		
+		if (owners.size() > 0)		
+		{
+			for (HomeOwner owner : owners)
+				result += owner.getFirstName() + " " + owner.getLastName() + "-";
+			
+			//remove the last - symbol added
+			result = result.substring(0, result.length() - 1);
+		}
+		else
+			result = "None";
+		
+		return result;
+	}
+	
 	private String tenantIdsToString() {
 		String result = "";
 		
@@ -187,6 +204,23 @@ abstract public class Property {
 		}
 		else
 			result = "-1";
+		
+		return result;
+	}
+	
+	public String tenantNamesToString() {
+		String result = "";
+		
+		if (tenants.size() > 0)		
+		{
+			for (Tenant tenant : tenants)
+				result += tenant.getFirstName() + " " + tenant.getLastName() + "-";
+			
+			//remove the last - symbol added
+			result = result.substring(0, result.length() - 1);
+		}
+		else
+			result = "None";
 		
 		return result;
 	}

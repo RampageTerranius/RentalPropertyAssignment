@@ -14,7 +14,7 @@ public class IOConversion {
 		for (HomeOwner owner : owners)
 			data.add(owner.convertToString());
 		
-		for (Tenant tenant : tenants) 
+		for (Tenant tenant : tenants)
 			data.add(tenant.convertToString());
 		
 		if (!io.saveFile(personFileName, data.toArray(new String[0]))) {
@@ -23,7 +23,7 @@ public class IOConversion {
 		}
 		
 		//saving the property file		
-		data = new ArrayList<String>();		
+		data = new ArrayList<String>();
 		
 		for (Property property : properties)
 			data.add(property.convertToString());
