@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 abstract public class Property {

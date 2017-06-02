@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
 public class IO {	
 	//load the file and return it as a string array
 	public String[] loadFile(String fileName) {
