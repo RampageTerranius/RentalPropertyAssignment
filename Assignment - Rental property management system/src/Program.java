@@ -40,8 +40,11 @@ public class Program {
 	}
 
 	public void loadData() {
-		if (ioc.loadAllData(this, data))		
+		if (ioc.loadAllData(this, data))		{
 			System.out.println("Data loaded");
+			ui.populateTables();
+		}
+			
 		else
 			System.out.println("Data failed to load...");
 	}
